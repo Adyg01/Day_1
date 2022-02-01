@@ -41,9 +41,11 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -64,27 +66,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Entitites\AppointnemntType.cs" />
-    <Compile Include="Entitites\ScheduleAppointment.cs" />
-    <Compile Include="Entitites\ScheduleHeader.cs" />
-    <Compile Include="UserControls\ScheduleAppointmentControl.xaml.cs">
-      <DependentUpon>ScheduleAppointmentControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ScheduleHeaderControl.xaml.cs">
-      <DependentUpon>ScheduleHeaderControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Utils\ScheduleGenerator.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Entitites\Appointment.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entitites\AppointnemntType.cs" />
     <Compile Include="Entitites\BaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,28 +91,56 @@
     <Compile Include="Entitites\Doctor.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entitites\DoctorPartial.cs" />
     <Compile Include="Entitites\DoctorSchedule.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entitites\Gender.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entitites\ScheduleAppointment.cs" />
+    <Compile Include="Entitites\ScheduleHeader.cs" />
     <Compile Include="Entitites\Specialization.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entitites\sysdiagrams.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
+    <Compile Include="Pages\PrintForm.xaml.cs">
+      <DependentUpon>PrintForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ScheduleAppointmentControl.xaml.cs">
+      <DependentUpon>ScheduleAppointmentControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ScheduleHeaderControl.xaml.cs">
+      <DependentUpon>ScheduleHeaderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ScheduleGenerator.cs" />
+    <Compile Include="Windows\WindowPrint.xaml.cs">
+      <DependentUpon>WindowPrint.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entitites\DoctorPartial.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\PrintForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\ScheduleAppointmentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ScheduleHeaderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\WindowPrint.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,19 +180,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Entitites\BaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BaseModel.Context.cs</LastGenOutput>
       <DependentUpon>BaseModel.edmx</DependentUpon>
+      <LastGenOutput>BaseModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Entitites\BaseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BaseModel.edmx</DependentUpon>
       <LastGenOutput>BaseModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

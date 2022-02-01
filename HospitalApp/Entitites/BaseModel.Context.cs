@@ -15,6 +15,15 @@ namespace HospitalApp.Entitites
     
     public partial class HospitalBaseEntities : DbContext
     {
+        private static HospitalBaseEntities context;
+
+        public static HospitalBaseEntities getContext()
+        {
+            if (context == null)
+                context = new HospitalBaseEntities();
+            return context;
+
+        }
         public HospitalBaseEntities()
             : base("name=HospitalBaseEntities")
         {
@@ -31,6 +40,5 @@ namespace HospitalApp.Entitites
         public virtual DbSet<DoctorSchedule> DoctorSchedule { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Specialization> Specialization { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

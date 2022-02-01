@@ -14,8 +14,9 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <TextBlock Text="Специализация:" Style="{StaticResource BlockCommon}" Width="auto" ></TextBlock>
             <ComboBox Name="ComboSpecialization" DisplayMemberPath="Name" SelectionChanged="ComboSpecialization_SelectionChanged" ></ComboBox>
-            <TextBlock Text="Врач:" Style="{StaticResource BlockCommon}" Width="auto" Margin="40 5 5 5"></TextBlock>
+            <TextBlock Text="Врач:" Style="{StaticResource BlockCommon}" Width="auto"></TextBlock>
             <ComboBox Name="ComboDoctor" DisplayMemberPath="FullName" SelectionChanged="ComboDoctor_SelectionChanged" ></ComboBox>
+            <Button Width="100" Content="Печать" Click="btnPrint_Click" Name="btnPrint"></Button>
         </StackPanel>
 
         <DataGrid x:Name="DGridSchedule" Grid.Row="1" SelectionUnit="Cell" >

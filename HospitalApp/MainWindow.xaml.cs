@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HospitalApp.Windows;
 
 namespace HospitalApp
 {
@@ -115,6 +116,13 @@ namespace HospitalApp
                 MessageBox.Show("Вы записаны на прием");
                 ComboDoctor_SelectionChanged(ComboDoctor, null);
             }
+        }
+
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            WindowPrint windowPrint = new WindowPrint();
+            windowPrint.Show();
+            this.Close();
         }
     }
 }
